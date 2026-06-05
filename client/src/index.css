@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #5a57d6;
+  --color-primary-dark: #4845b8;
+  --color-sidebar: #1a1d2e;
+  --color-sidebar-hover: #252840;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  background-color: #f5f6fa;
+  color: #1f2937;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dark body {
+  background-color: #0f1117;
+  color: #f3f4f6;
+}
+
+@layer components {
+  .page-bg {
+    @apply bg-[#f5f6fa] dark:bg-[#0f1117];
+  }
+
+  .surface {
+    @apply bg-white dark:bg-[#1a1d2e] rounded-xl shadow-sm border border-gray-100 dark:border-gray-700/50;
+  }
+
+  .surface-lg {
+    @apply bg-white dark:bg-[#1a1d2e] rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700/50;
+  }
+
+  .header-bar {
+    @apply bg-white dark:bg-[#1a1d2e] border-b border-gray-100 dark:border-gray-700/50;
+  }
+
+  .text-heading {
+    @apply text-gray-800 dark:text-gray-100;
+  }
+
+  .text-body {
+    @apply text-gray-700 dark:text-gray-300;
+  }
+
+  .text-muted {
+    @apply text-gray-500 dark:text-gray-400;
+  }
+
+  .text-label {
+    @apply text-gray-700 dark:text-gray-300;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2.5 border border-gray-200 dark:border-gray-600 rounded-lg
+      bg-white dark:bg-[#252840] text-gray-800 dark:text-gray-100
+      placeholder:text-gray-400 dark:placeholder:text-gray-500
+      focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary;
+  }
+
+  .nav-link {
+    @apply text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary;
+  }
+
+  .btn-ghost {
+    @apply p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors;
+  }
+
+  .table-head {
+    @apply border-b border-gray-100 dark:border-gray-700/50;
+  }
+
+  .table-row {
+    @apply border-b border-gray-50 dark:border-gray-700/30 hover:bg-gray-50/50 dark:hover:bg-gray-700/20;
+  }
+
+  .alert-error {
+    @apply bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-sm p-3 rounded-lg;
+  }
+
+  .alert-success {
+    @apply bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 text-sm p-3 rounded-lg;
+  }
+}
