@@ -19,7 +19,7 @@ const app = express();
 
 connectDB().then(() => ensureCategories());
 
-app.use(cors({ origin: 'https://complain.vercel.app' }));
+app.use(cors({ origin: process.env.CLIENT_URL || 'http://localhost:3000' }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
